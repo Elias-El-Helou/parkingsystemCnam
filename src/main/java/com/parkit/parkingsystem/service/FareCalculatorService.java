@@ -18,8 +18,11 @@ public class FareCalculatorService {
         long durationm = outMinutes - inMinutes;
         double rate = 1.0;
         int duration = (int) durationm / 60; 
-        if (durationm < 15) {
+        
+        // Ajouter la logique pour le stationnement gratuit pour les 30 premières minutes
+        if (durationm <= 30) {
             rate = 0.0;
+            duration = 0;
         } else if (durationm < 60) {
             rate = 0.75;
             duration = 1;
